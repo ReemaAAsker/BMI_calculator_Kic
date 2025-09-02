@@ -1,9 +1,20 @@
-import 'package:bmi_clac_kic/widgets/calc_button.dart';
-import 'package:bmi_clac_kic/widgets/custom_card.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:bmi_clac_kic/widgets/calc_button.dart';
+import 'package:bmi_clac_kic/widgets/custom_card.dart';
+
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  final String resultClass;
+  final double bmi;
+  final String advice;
+
+  const ResultScreen({
+    Key? key,
+    required this.resultClass,
+    required this.bmi,
+    required this.advice,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +36,7 @@ class ResultScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    'Normal',
+                    resultClass,
                     style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
@@ -33,24 +44,31 @@ class ResultScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '12.5',
+                    bmi.toStringAsFixed(2),
                     style: TextStyle(
                       fontSize: 60,
                       fontWeight: FontWeight.w900,
                       color: Colors.white,
                     ),
                   ),
-                  Text(
-                    'You have a normal body weight. Good job!',
-                    textAlign: TextAlign.center,
-                  ),
+                  Text(advice, textAlign: TextAlign.center),
                 ],
               ),
             ),
           ),
-          CalculateButton(title: 'RE-calculate'),
+          CalculateButton(
+            title: 'RE-calculate',
+            onPress: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
   }
 }
+/*
+2 points 
+1 points
+
+*/
