@@ -28,7 +28,7 @@ class BMICalculator {
 
   String getAdvice() {
     if (bmi >= 40)
-      return "رجاء اهتم بنفسك + اذهب للدكتور + وضعك صعب";
+      return "Your body weight is extremely high, consider some small changes such as taking the stairs over the elevator.";
     else if (bmi >= 25)
       return "Your body weight is currently higher than the recommended weight. Consider some small changes such as taking the stairs over the elevator.";
     else if (bmi > 18.5)
